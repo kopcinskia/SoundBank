@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Drum Kit</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+<div id="content">
+    <div class="keys">
+        <div class="piano">
+        <div data-key="81" class="key">
+                <kbd>Q</kbd>
+                <span class="soundDrums">clap</span>
+            </div>
+            <div data-key="87" class="key">
+                <kbd>W</kbd>
+                <span class="soundDrums">hihat</span>
+            </div>
+            <div data-key="69" class="key">
+                <kbd>E</kbd>
+                <span class="soundDrums">kick</span>
+            </div>
+            <div data-key="82" class="key">
+                <kbd>R</kbd>
+                <span class="soundDrums">openhat</span>
+            </div>
+            <div data-key="84" class="key">
+                <kbd>T</kbd>
+                <span class="soundDrums">boom</span>
+            </div>
+            <div data-key="89" class="key">
+                <kbd>Y</kbd>
+                <span class="soundDrums">ride</span>
+            </div>
+            <div data-key="85" class="key">
+                <kbd>U</kbd>
+                <span class="soundDrums">snare</span>
+            </div>
+
+            <div data-key="73" class="key">
+                <kbd>I</kbd>
+                <span class="soundDrums">tom</span>
+            </div>
+            <div data-key="79" class="key">
+                <kbd>O</kbd>
+                <span class="soundDrums">tink</span>
+            </div>
+        </div>
+
+        <div class="drums">
+            <div data-key="65" class="key">
+                <kbd>A</kbd>
+                <span class="soundPiano">piano C</span>
+            </div>
+            <div data-key="83" class="key">
+                <kbd>S</kbd>
+                <span class="soundPiano">piano D</span>
+            </div>
+            <div data-key="68" class="key">
+                <kbd>D</kbd>
+                <span class="soundPiano">piano E</span>
+            </div>
+            <div data-key="70" class="key">
+                <kbd>F</kbd>
+                <span class="soundPiano">piano F</span>
+            </div>
+            <div data-key="71" class="key">
+                <kbd>G</kbd>
+                <span class="soundPiano">piano G</span>
+            </div>
+            <div data-key="72" class="key">
+                <kbd>H</kbd>
+                <span class="soundPiano">piano A</span>
+            </div>
+            <div data-key="74" class="key">
+                <kbd>J</kbd>
+                <span class="soundPiano">piano B</span>
+            </div>
+            <div data-key="75" class="key">
+                <kbd>K</kbd>
+                <span class="soundPiano">piano C</span>
+            </div>
+        </div>
+
+        <div class="electricGuitar">
+            <div data-key="90" class="key">
+                <kbd>Z</kbd>
+                <span class="soundGuitar">electic C</span>
+            </div>
+            <div data-key="88" class="key">
+                <kbd>X</kbd>
+                <span class="soundGuitar">electic D</span>
+            </div>
+            <div data-key="67" class="key">
+                <kbd>C</kbd>
+                <span class="soundGuitar">electic E</span>
+            </div>
+            <div data-key="86" class="key">
+                <kbd>V</kbd>
+                <span class="soundGuitar">electic F</span>
+            </div>
+            <div data-key="66" class="key">
+                <kbd>B</kbd>
+                <span class="soundGuitar">electic G</span>
+            </div>
+            <div data-key="78" class="key">
+                <kbd>N</kbd>
+                <span class="soundGuitar">electic A</span>
+            </div>
+            <div data-key="77" class="key">
+                <kbd>M</kbd>
+                <span class="soundGuitar">electic B</span>
+            </div>
+            <div data-key="188" class="key">
+                <kbd>,</kbd>
+                <span class="soundGuitar">electic C</span>
+            </div>
+a
+        </div>
+    </div>
+
+    <audio data-key="81" src="sounds/clap.wav"></audio>
+    <audio data-key="87" src="sounds/hihat.wav"></audio>
+    <audio data-key="69" src="sounds/kick.wav"></audio>
+    <audio data-key="82" src="sounds/openhat.wav"></audio>
+    <audio data-key="84" src="sounds/boom.wav"></audio>
+    <audio data-key="89" src="sounds/ride.wav"></audio>
+    <audio data-key="85" src="sounds/snare.wav"></audio>
+    <audio data-key="73" src="sounds/tom.wav"></audio>
+    <audio data-key="79" src="sounds/tink.wav"></audio>
+    <audio data-key="65" src="sounds/piono__c4.wav"></audio>
+    <audio data-key="83" src="sounds/piono__d4.wav"></audio>
+    <audio data-key="68" src="sounds/piono__e4.wav"></audio>
+    <audio data-key="70" src="sounds/piono__f4.wav"></audio>
+    <audio data-key="71" src="sounds/piono__g4.wav"></audio>
+    <audio data-key="72" src="sounds/piono__a4.wav"></audio>
+    <audio data-key="74" src="sounds/piono__b4.wav"></audio>
+    <audio data-key="75" src="sounds/piano__c5.wav"></audio>
+    <audio data-key="90" src="sounds/electrik%20guitar%20c.wav"></audio>
+    <audio data-key="88" src="sounds/electrik%20guitar%20d.wav"></audio>
+    <audio data-key="67" src="sounds/electrik%20guitar%20e.wav"></audio>
+    <audio data-key="86" src="sounds/electrik%20guitar%20f.wav"></audio>
+    <audio data-key="66" src="sounds/electrik%20guitar%20g.wav"></audio>
+    <audio data-key="78" src="sounds/electrik%20guitar%20a.wav"></audio>
+    <audio data-key="77" src="sounds/electrik%20guitar%20b.wav"></audio>
+    <audio data-key="188" src="sounds/electrik%20guitar%20c2.wav"></audio>
+</div>
+    <script>
+        function playSound(e) {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+            if (!audio) return
+            audio.currentTime = 0
+            audio.play()
+            key.classList.add('playing')
+        }
+
+
+        function removeTransition(e) {
+            if (e.propertyName !== 'transform') return
+            this.classList.remove('playing')
+        }
+        const keys = document.querySelectorAll('.key')
+        keys.forEach(key => key.addEventListener('click', playSound))
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition))
+        window.addEventListener('keydown', playSound)
+
+    </script>
+
+
+</body>
+
+</html>
