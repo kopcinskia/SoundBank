@@ -15,11 +15,36 @@ body{
    
 }
 #content{
-     background: url(../img/projekt.V003prostokatV002.png) center;
+     background: url(../img/projekt.V003prostokatV002.jpg) center;
     background-size: cover;
    
 }
 
+.copyright {
+    bottom: 0px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.copyright p {
+    font-size: 22px;
+    color: #aaa;
+    margin: 0;
+    padding: 5px;
+}
+
+.logo a{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.logo img {
+    padding-top: 7px;
+    padding-left: 14px;
+    width: 140px;
+}
 
 .keys {
 
